@@ -25,6 +25,7 @@ public class MarkupBuilderTemplateEngine implements TemplateEngine {
         StringWriter writer = new StringWriter()
         def html = new MarkupBuilder(writer)
         Binding binding = new Binding(params)
+        binding.setVariable('builder', html)
         Closure closure = new GroovyShell(binding).evaluate( "{ it-> ${template} }" )
         closure.delegate = html
         closure()
