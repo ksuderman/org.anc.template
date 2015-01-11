@@ -6,7 +6,7 @@ import groovy.text.Template
 /**
  * @author Keith Suderman
  */
-class HtmlTemplateEngine implements TemplateEngine {
+public class HtmlTemplateEngine implements TemplateEngine {
     Template template
 
     public HtmlTemplateEngine(String template) {
@@ -25,7 +25,7 @@ class HtmlTemplateEngine implements TemplateEngine {
         template = new SimpleTemplateEngine().createTemplate(url)
     }
 
-    String generate(Map params) {
+    public String generate(Map params) {
         return template.make(params).toString()
     }
 }
