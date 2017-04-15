@@ -3,6 +3,22 @@ package org.anc.template
 import groovy.xml.MarkupBuilder
 
 /**
+ * Uses the MarkupBuilder DSL as the template language.
+ * <pre>
+ *     String template = """
+ *     html {
+ *         head {
+ *             title "This is a test"
+ *         }
+ *         body {
+ *             h1 "Testing"
+ *             p "Hello world."
+ *         }
+ *     }
+ *     """
+ *     def builder = new MarkupBuilderTemplateEngine(template)
+ *     println builder.generate([:])
+ *
  * @author Keith Suderman
  */
 public class MarkupBuilderTemplateEngine implements TemplateEngine {
