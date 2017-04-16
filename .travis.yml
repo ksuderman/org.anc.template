@@ -1,5 +1,19 @@
 language: groovy
+env:
+  global:
+  - secure: s6wnTcpm+mAKiqVPs7eC+g7iCXOnqxAtChqYNxvqCEolOAiniGD3oSuaIsL+CONYbX1uZJgixVbjv5+JT/TZWKficbYMOn39Z1w+k3IrL2SfR0w8hvIdxIGGtHI5+XAcXZfnTYv0AJFWiZQ46BRdx5l5UuwipGD4ye7irKGiuAk=
+  - secure: hNW8HW8d0d7AzEkw9HjzVFZ4qjIOt/qsvItyUD3VViEkWSo4R0d8r35lRl+kp++iw8IptiuvcPRflVrFvxBIoKQHwXpj+zA576iHd3boP+6U2QtIYq1unzVbTQwFGQjRNKlKAwdgGjgJNfVvHGXWn5nMBFZS/JjIsz5llTXluZQ=
+  - secure: EhAk1DN8QDOy9ucNiE53hoYyEpWlBJFw2YQCLbO/cO0U60sn95F2aj21dqILyMQG/+3OTpf3c2ImaSa+30Vgtstb+rdFKcugeiMKvNpvMLsnb3yHEfyLvWW+El7gR4VAxZlQ5RDkvPg6vdjvfzAB4YR6tCE+XHYZ+B9mDwJeL5M=
+  - secure: fmdzEJh2guhpo75pU6Jir0r12hrzwqqZ6tM2oi214j0MhiPklC3+HBsJ7Acd6cgapdg2HZRc4Vdj1pKBFdWj2dkDgoY3CNzW90gncNdgzG+V+lWS6N1Sa8Tzo/GAMNcJ7KFmdIoPPylg39qtuR+SQfOaVgFgBdrRMWg/Nt9zMhg=
+  - secure: nDz/jn9JaDWBEDRD3s3otc3h9PTTiWsXqGR8w83F2ZfK3+vxSXpiYjha0Tv8eCE6/3f3ChU8yaHN7YdksDboqAzJx9Wg2GQO7k5fr0np9OFF0oxEl208U3704gmUqj8n7fsKOo/4jnEwfwAaCzbl8ZsNVAyPnKcKR8dw5EjG/8o=
+  - secure: rUYs1Y540KMnbeak9HHIHoeB2SRfgFqbMR9ZXWb126lIAI6rUtVujPGJ79IoWJwm1sGS9zrz6Cy8Ww5Lv+UkDaUQhTyXu9P0SZXKhhy0iVcK1+goiV1xhDkb+TNmSsQ48fZaobibAHVOGMpQN2fxvWsHU6drEmU/qO3xC4d6lE8=
 branches:
   only:
   - master
   - develop
+before_install:
+- chmod a+x ./deploy.sh
+script:
+- mvn clean test --settings settings.xml
+after_success:
+- if [ "$TRAVIS_BRANCH" == "master" ] ; then ./deploy.sh ; fi
