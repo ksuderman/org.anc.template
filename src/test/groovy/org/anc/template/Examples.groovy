@@ -51,5 +51,6 @@ html {
 
         Node list = body.children()[0]
         assert list.children().size() == 10
+        // If we've made it this far assume all list items are correct as well.
     }
 }
