@@ -7,7 +7,7 @@
     </parent>
     <groupId>org.anc</groupId>
     <artifactId>template</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>ANC Template Engine</name>
     <description>A template system for generating HTML using either the SimpleTemplateEngine or a MarkupBuilder.</description>
     <inceptionYear>2014</inceptionYear>
