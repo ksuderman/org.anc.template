@@ -50,4 +50,28 @@ html {
         def html = parser.parse(new StringReader(product))
         assertTrue html.head.title.text() == expected
     }
+
+    @Test
+    void someTest() {
+        String title = "This is a test"
+        String heading = "Testing"
+        String text = "Hello world."
+        String template = """
+            html {
+                head {
+                    title "$title"
+                }
+                body {
+                    h1 "$heading"
+                    p "$text"
+                }
+            }
+        """
+        def builder = new MarkupBuilderTemplateEngine(template)
+        String html = builder.generate([:])
+        def doc = parser.parseText(html)
+        assertEquals(title, doc.head.title.text())
+        assertEquals(heading, doc.body.h1.text())
+        assertEquals(text, doc.body.p.text())
+    }
 }

@@ -4,6 +4,20 @@ import groovy.text.SimpleTemplateEngine
 import groovy.text.Template
 
 /**
+ * A template engine that uses HTML syntax for the template.
+ * <pre>
+ *     String  template = """
+ *     <html>
+ *         <body>
+ *             <p>\$title</p>
+ *         </body>
+ *     </html>
+ *     """
+ *     TemplateEngine engine = new HtmlTemplateEngine(template)
+ *     String html = engine.generate([title:'Test'])
+ *     def root = parser.parse(new StringReader(html))
+ *     assertTrue root.head.title.text() == 'Test'
+ * </pre>
  * @author Keith Suderman
  */
 public class HtmlTemplateEngine implements TemplateEngine {
