@@ -3,6 +3,8 @@
 [![Master Status](http://grid.anc.org:9080/travis/svg/oanc/org.anc.template?branch=master)](https://travis-ci.org/oanc/org.anc.template)
 [![Develop Status](http://grid.anc.org:9080/travis/svg/oanc/org.anc.template?branch=develop)](https://travis-ci.org/oanc/org.anc.template)
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.anc/template/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.anc/template)
+
 The `org.anc.template` module provides simple wrappers around Groovy's [template engines](http://docs.groovy-lang.org/next/html/documentation/template-engines.html) to generate XML or HTML output.
 
 The `HtmlTemplateEngine` uses a JSP/GSP like syntax as the template language:

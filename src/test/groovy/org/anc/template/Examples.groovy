@@ -1,4 +1,4 @@
-package org.anc.template
+ package org.anc.template
 
 import org.junit.Test
 
